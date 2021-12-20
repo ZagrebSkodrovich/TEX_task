@@ -1,0 +1,60 @@
+\documentclass[a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english, russian]{babel}
+\usepackage{geometry,
+    graphicx,
+    xcolor,
+    listings,
+    hyperref,
+    minted,
+    amsfonts}
+\graphicspath{{./images/}}
+\geometry{left=20mm,
+        right=10mm,
+        top=20mm,
+        bottom=20mm, }
+\setlength{\parindent}{0em}
+
+\title{Домашнее задание в \LaTeX.}
+\author{Исаев Георгий, группа 215}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\pagenumbering{roman}
+\pagenumbering{arabic}
+
+\paragraph{Условие}
+По круглому тонкому проводнику радиусом $r$ течет ток силы $I$. 
+Найти магнитное поле в центре.
+
+\paragraph{Решение}
+Воспользуемся законом Био-Савара-Лапласа:
+
+\begin{equation}
+    d\vec{B} = \frac{\mu_0}{4\pi} \cdot \frac{I\left[d\vec{l} \cdot \vec{r}\right]}{r^3}
+\end{equation}
+
+Из этого закона следует, что направление вектора $d\vec{B}$ совпадает с направлением
+векторного произведения $\left[d\vec{l}, \vec{r}\right]$. Такое же направление
+дает и правило правого винта.
+
+Учитывая, что
+\[
+    \left| \left[d\vec{l}, \vec{r}\right] \right| = dl r \sin(d\vec{l},\vec{r}) = dlr\sin\alpha,
+\]
+
+\[
+    \mathrm{d}B = \frac{\mu_0}{4\pi} \cdot \frac{I\mathrm{d}l \cdot \sin\alpha}{r^2},
+\]
+
+Получим
+\[
+    B = \int_0^l \frac{\mu_0}{4\pi} \cdot \frac{I\mathrm{d}l \cdot \sin\alpha}{r^2} = 
+    \frac{\mu_0I}{4\pi r^2} \int_0^l \mathrm{d}l = \frac{\mu_0I}{4\pi r^2} \cdot 2\pi r = 
+    \frac{\mu_0I}{2r}
+\]
+
+\end{document}
